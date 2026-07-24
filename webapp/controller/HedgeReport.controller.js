@@ -297,10 +297,16 @@ sap.ui.define([
 				//swapn no.s
 				[oMinLimitValue, oMaxLimitValue] = [oMaxLimitValue, oMinLimitValue];
 			}
-			if (ohedgeRequestValue > oMaxLimitValue || ohedgeRequestValue < oMinLimitValue) {
+            /**
+             * SOC FIN00534584 removed the validation for the min and max amount 
+             * as these validations are oding to be hanled from the backend
+             * Uid 10452844
+             * /  
+			/*if (ohedgeRequestValue > oMaxLimitValue || ohedgeRequestValue < oMinLimitValue) {
 				MessageBox.error("Hedge Request should be between Maximum & Minimum Hedge Limit");
 				oEvent.getSource().setValue("");
-			}
+			}*/
+            // EOC FIN00534584
 
 			// old logic of Abs for -ve amounts
 			// if (isNaN(ohedgeRequestValue)) {
