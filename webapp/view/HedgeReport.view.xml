@@ -100,7 +100,7 @@
 				header="Hedge Report" showRowCount="true" persistencyKey="Hedge_SmartTableAnalytical" enableAutoBinding="true"
 				class="sapUiResponsiveContentPadding" editTogglable="false" app:useSmartToggle="true" initiallyVisibleFields="PositionId"
 				beforeRebindTable="onBeforeRebindTable"
-				requestAtLeastFields="PositionId,ExpType,Bukrs,Rcomp,Gsber,Prctr,Division,Pggroup,ExpAmt,BuySell,ExpCurr,TargetCurr,HedgedAmt,UnhedgedAmt,ExpThAmt,DueDate,Status,EntityType,Reqamt,Proposedhedge,Maxhedge,Wbs,Pososguid,Reqoption,Reqperiod,RitaNumber,Minhedge,absStatus"
+				requestAtLeastFields="PositionId,ExpType,Bukrs,Rcomp,Gsber,Prctr,Division,Pggroup,ExpAmt,BuySell,ExpCurr,TargetCurr,HedgedAmt,UnhedgedAmt,ExpThAmt,DueDate,Status,EntityType,Reqamt,Proposedhedge,Maxhedge,Wbs,Pososguid,Reqoption,Reqperiod,RitaNumber,Minhedge,absStatus,NetworkEle"
 				ignoredFields="Hedgereq,Proposedhedge,Maxhedge,Pososguid,Reqamt,Reqoption,Reqperiod,RitaNumber,Minhedge,absStatus" >
 				<smartTable:customToolbar>
 					<OverflowToolbar design="Transparent">

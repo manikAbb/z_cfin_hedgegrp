@@ -20,8 +20,8 @@ builder:
         app:
           name: Z_CF6_HEDGERPRT
           description: Hedgemodel Report Ui5 App
-          package: $TMP
-          transport: ''
+          package: ZCFIN_FIORI
+          transport: CF6K934324
         exclude:
           - /test/
           - /localService/
