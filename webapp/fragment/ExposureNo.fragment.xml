@@ -1,0 +1,62 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:fb="sap.ui.comp.filterbar" >
+    <Dialog title="{i18n>exposureId}" >
+        <content>
+            <VBox>
+                <Table items="{ExposureNoModel>/}" id="idHRExposureIdHelpDialog" mode="SingleSelectMaster" 
+                	selectionChange="onSelectExposureId" growing="true" growingScrollToLoad="true" >
+                    <columns>
+                        <Column >
+                            <header>
+                                <Text text="{i18n>exposureId}" />
+                            </header>
+                        </Column>
+                        <Column >
+                            <header>
+                                <Text text="{i18n>positionID}" />
+                            </header>
+                        </Column>
+                        <Column >
+                            <header>
+                                <Text text="{i18n>itemId}" />
+                            </header>
+                        </Column>
+                        <Column >
+                            <header>
+                                <Text text="{i18n>amount}" />
+                            </header>
+                        </Column>
+                         <Column >
+                            <header>
+                                <Text text="{i18n>description}" />
+                            </header>
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem >
+                            <cells  >
+                                <Text text="{ExposureNoModel>ExposureId}" />
+                                <Text text="{ExposureNoModel>PositionId}" />
+                                <Text text="{ExposureNoModel>ItemId}" />
+                                <Text text="{ExposureNoModel>Amount}" />
+                                <Text text="{ExposureNoModel>Description}" />
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </VBox>
+        </content>
+        <buttons>
+            <Button text="Close" press="exposureIdValueHelpClose" />
+        </buttons>
+    </Dialog>
+ <!--   <SelectDialog-->
+	<!--		title="{i18n>exposureNo}"-->
+	<!--		items="{ExposureNoModel>/}"-->
+	<!--		search="_handleExposureNoHelpSearch"-->
+	<!--		confirm="_handleExposureNoHelpClose"-->
+	<!--		cancel="_handleExposureNoHelpClose"-->
+	<!--		multiSelect="false">-->
+	<!--<StandardListItem-->
+	<!--			title="{ExposureNoModel>exposure}" />-->
+	<!--</SelectDialog>-->
+</core:FragmentDefinition>

@@ -1,0 +1,224 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form" xmlns:layout="sap.ui.layout"
+	xmlns:u="sap.ui.unified">
+	<Dialog id="idHRDialogButton" >
+		<content>
+			<VBox>
+				<form:Form id="idHRForm" editable="true" >
+					<form:layout >
+						<form:ColumnLayout columnsM="2" columnsL="2" columnsXL="2"/>
+					</form:layout>
+					<form:formContainers >
+						
+						<form:FormContainer id="idHRHedgeRolloverContainer1" visible="false" >
+							<form:formElements >
+								<form:FormElement label="{i18n>expflowtype}">
+									<form:fields>
+										<Input id="idHRExpFlowTypeHedgeRollover" editable="false"></Input>
+									</form:fields>
+								</form:FormElement>
+								<form:FormElement label="{i18n>parentNumber}">
+									<form:fields>
+										<Input id="idHRParentNumberHedgeRollover" valueHelpRequest="onParentNumberHedgeRolloverValueHelp" showValueHelp="true" required="true" ></Input>
+									</form:fields>
+								</form:FormElement>
+								<form:FormElement label="{i18n>valueDate}">
+									<form:fields>
+										<Input id="idHRValueDateHedgeRollover" editable="false" ></Input>
+									</form:fields>
+								</form:FormElement>
+							</form:formElements>
+						</form:FormContainer>
+						<form:FormContainer id="idHRHedgeRolloverContainer2" visible="false" >
+							<form:formElements >
+								<form:FormElement label="{i18n>planningMonthYear}">
+									<form:fields>
+										<DatePicker id="idHRPlanningMYHedgeRollover" displayFormat="MM/yyyy" valueFormat="MM/yyyy" required="true"/>
+									</form:fields>
+								</form:FormElement>
+								<form:FormElement label="{i18n>exposureNo}">
+									<form:fields>
+										<Input id="idHRExposureNoHedgeRollover" valueHelpRequest="onExposureNoHedgeRolloverValueHelp" showValueHelp="true"/>
+									</form:fields>
+								</form:FormElement>
+								<form:FormElement label="{i18n>amount}">
+									<form:fields>
+										<Input id="idHRAmountHedgeRollover" required="true"  type="Number" change="onHedgeRolloverAmountCheck"  ></Input>
+										<Input id="idHRAmountCurrencyHedgeRollover" editable="false"  >
+											<layoutData>
+												<layout:GridData span="XL1 L1 M1 S1"/>
+											</layoutData>
+										</Input>
+										<Input id="idHRBuySelHedgeRolloverl" editable="false"  >
+											<layoutData>
+												<layout:GridData span="XL1 L1 M1 S1"/>
+											</layoutData>
+										</Input>
+									</form:fields>
+								</form:FormElement>
+							</form:formElements>
+						</form:FormContainer>
+						
+						<form:FormContainer id="idHRMassRolloverContainer" visible="false" >
+							<form:formElements >
+								<form:FormElement label="{i18n>targetMonthYear}">
+									<form:fields>
+										<DatePicker id="idHRTargetMYMassRollover" displayFormat="MM/yyyy" valueFormat="MM/yyyy" required="true"/>
+									</form:fields>
+								</form:FormElement>
+							</form:formElements>
+						</form:FormContainer>
+						
+						<form:FormContainer id="idHREarlyExpirationContainer1" visible="false" >
+							<form:formElements >
+								<form:FormElement label="{i18n>expflowtype}">
+									<form:fields>
+										<Input id="idHRExpFlowTypeEarlyExpiration" editable="false"></Input>
+									</form:fields>
+								</form:FormElement>
+								<form:FormElement label="{i18n>parentNumber}">
+									<form:fields>
+										<Input id="idHRParentNumberEarlyExpiration" valueHelpRequest="onParentNumberEarlyExpirationValueHelp" showValueHelp="true" required="true" ></Input>
+									</form:fields>
+								</form:FormElement>
+								<form:FormElement label="{i18n>valueDate}">
+									<form:fields>
+										<Input id="idHRValueDateEarlyExpiration" editable="false" ></Input>
+									</form:fields>
+								</form:FormElement>
+							</form:formElements>
+						</form:FormContainer>
+						<form:FormContainer id="idHREarlyExpirationContainer2" visible="false" >
+							<form:formElements >
+								<form:FormElement label="{i18n>maturityMonthYear}">
+									<form:fields>
+										<DatePicker id="idHRMaturityMYEarlyExpiration" displayFormat="MM/yyyy" valueFormat="MM/yyyy" required="true"/>
+									</form:fields>
+								</form:FormElement>
+								<form:FormElement label="{i18n>exposureNo}">
+									<form:fields>
+										<Input id="idHRExposureNoEarlyExpiration" valueHelpRequest="onExposureNoEarlyExpirationValueHelp" showValueHelp="true"/>
+									</form:fields>
+								</form:FormElement>
+								<form:FormElement label="{i18n>amount}">
+									<form:fields>
+										<Input id="idHRAmountEarlyExpiration" required="true"  type="Number" change="onEarlyExpirationAmountCheck"   ></Input>
+										<Input id="idHRAmountCurrencyEarlyExpiration" editable="false"  >
+											<layoutData>
+												<layout:GridData span="XL1 L1 M1 S1"/>
+											</layoutData>
+										</Input>
+										<Input id="idHRBuySelHedgeEarlyExp" editable="false"  >
+											<layoutData>
+												<layout:GridData span="XL1 L1 M1 S1"/>
+											</layoutData>
+										</Input>
+									</form:fields>
+								</form:FormElement>
+							</form:formElements>
+						</form:FormContainer>
+						
+						<form:FormContainer id="idHRExposureRolloverContainer" visible="false" >
+							<form:formElements >
+								<form:FormElement label="{i18n>monthYear}">
+									<form:fields>
+										<DatePicker id="idHRMYExposureRollover" required="true" displayFormat="MM/yyyy" valueFormat="MM/yyyy"/>
+									</form:fields>
+								</form:FormElement>
+								<form:FormElement label="{i18n>amount}">
+									<form:fields>
+										<Input id="idHRAmountExposureRollover" required="true"  type="Number"   ></Input>
+										<Input id="idHRAmountCurrencyExposureRollover" editable="false"  >
+											<layoutData>
+												<layout:GridData span="XL1 L1 M1 S1"/>
+											</layoutData>
+										</Input>
+										<!--<Input id="idHRBuySelHedgeExpRollover" editable="false"  >-->
+										<!--	<layoutData>-->
+										<!--		<layout:GridData span="XL1 L1 M1 S1"/>-->
+										<!--	</layoutData>-->
+										<!--</Input>-->
+									</form:fields>
+								</form:FormElement>
+							</form:formElements>
+						</form:FormContainer>
+						
+						<form:FormContainer id="idHRExposureRolebackContainer" visible="false" >
+							<form:formElements >
+								<form:FormElement label="{i18n>monthYear}">
+									<form:fields>
+										<DatePicker id="idHRMYExposureRoleback" required="true" displayFormat="MM/yyyy" valueFormat="MM/yyyy"/>
+									</form:fields>
+								</form:FormElement>
+								<form:FormElement label="{i18n>amount}">
+									<form:fields>
+										<Input id="idHRAmountExposureRoleback" required="true"  type="Number"   ></Input>
+										<Input id="idHRAmountCurrencyExposureRoleback" editable="false"  >
+											<layoutData>
+												<layout:GridData span="XL1 L1 M1 S1"/>
+											</layoutData>
+										</Input>
+										<!--<Input id="idHRBuySelHedgeExpRollBack" editable="false"  >-->
+										<!--	<layoutData>-->
+										<!--		<layout:GridData span="XL1 L1 M1 S1"/>-->
+										<!--	</layoutData>-->
+										<!--</Input>-->
+									</form:fields>
+								</form:FormElement>
+							</form:formElements>
+						</form:FormContainer>
+						
+						<form:FormContainer id="idHRCloseoutContainer1" visible="false" >
+							<form:formElements >
+								<form:FormElement label="{i18n>expflowtype}">
+									<form:fields>
+										<Input id="idHRExpFlowTypeCloseout" editable="false"></Input>
+									</form:fields>
+								</form:FormElement>
+								<form:FormElement label="{i18n>parentNumber}">
+									<form:fields>
+										<Input id="idHRParentNumberCloseout" valueHelpRequest="onParentNumberCloseoutValueHelp" showValueHelp="true" required="true" ></Input>
+									</form:fields>
+								</form:FormElement>
+								<form:FormElement label="{i18n>exposureNo}">
+									<form:fields>
+										<Input id="idHRExposureNoCloseout" valueHelpRequest="onExposureNoCloseoutValueHelp" showValueHelp="true"/>
+									</form:fields>
+								</form:FormElement>
+							</form:formElements>
+						</form:FormContainer>
+						<form:FormContainer id="idHRCloseoutContainer2" visible="false" >
+							<form:formElements >
+								<form:FormElement label="{i18n>valueDate}">
+									<form:fields>
+										<Input id="idHRValueDateCloseout" editable="false" ></Input>
+									</form:fields>
+								</form:FormElement>
+								<form:FormElement label="{i18n>amount}">
+									<form:fields>
+										<Input id="idHRAmountCloseout" required="true"  type="Number" change="onCloseOutAmountCheck"    ></Input>
+										<Input id="idHRAmountCurrencyCloseout" editable="false"  >
+											<layoutData>
+												<layout:GridData span="XL1 L1 M1 S1"/>
+											</layoutData>
+										</Input>
+										<Input id="idHRBuySelHedgeCloseOut" editable="false"  >
+											<layoutData>
+												<layout:GridData span="XL1 L1 M1 S1"/>
+											</layoutData>
+										</Input>
+									</form:fields>
+								</form:FormElement>
+							</form:formElements>
+						</form:FormContainer>
+						
+					</form:formContainers>
+				</form:Form>
+				
+			</VBox>
+		</content>
+		<buttons>
+			<Button text="Save" press="onHMEESave"/>
+			<Button text="Cancel" press="onHMEECancel"/>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

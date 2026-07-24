@@ -1,0 +1,69 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form"
+	xmlns:layout="sap.ui.layout"  >
+    <Dialog title="{i18n>requestSpotForward}" >
+        <content>
+            <VBox>
+                <form:Form editable="true" >
+                    <form:layout >
+                        <form:ResponsiveGridLayout
+                        labelSpanXL="4"
+                        labelSpanL="4"
+                        labelSpanM="12"
+                        labelSpanS="12"
+                        adjustLabelSpan="false"
+                        emptySpanXL="0"
+                        emptySpanL="0"
+                        emptySpanM="0"
+                        emptySpanS="0"
+                        columnsXL="1"
+                        columnsL="1"
+                        columnsM="1"
+                        singleContainerFullSize="false" />
+                    </form:layout>    
+                    <form:formContainers >
+                        <form:FormContainer>
+                                <form:formElements >
+                                    <form:FormElement label="{i18n>maximumLimit}" >
+                                        <form:fields>
+                                            <Input id="idHRMaximumLimit" editable="false" value="{RequestSpotForwardModel>/maximumLimit}" ></Input>
+                                        </form:fields>
+                                    </form:FormElement>
+                                    <form:FormElement label="{i18n>minimumLimit}" >
+                                        <form:fields>
+                                            <Input id="idHRMinimumLimit" editable="false" value="{RequestSpotForwardModel>/Minhedge}" ></Input>
+                                        </form:fields>
+                                    </form:FormElement>
+                                    <form:FormElement label="{i18n>proposedHedge}">
+                                        <form:fields>
+                                            <Input id="idHRProposedHedge"  editable="false" value="{RequestSpotForwardModel>/proposedHedge}" ></Input>
+                                        </form:fields>
+                                    </form:FormElement>
+                                    <form:FormElement label="{i18n>hedgeRequest}">
+                                        <form:fields>
+                                            <Input id="idHRHedgeRequest" type="Number" change="onHedgeRequest" value="{RequestSpotForwardModel>/hedgeRequest}" > </Input>
+                                        </form:fields>
+                                    </form:FormElement>
+                                    <form:FormElement label="{i18n>Note}">
+                                        <form:fields>
+                                            <Text text="Revenue: + amount increases and - amount reduces hedges" > </Text>
+                                            <!--<Text text="Costs: - amount increases and + amount reduces hedges" > </Text>-->
+                                        </form:fields>
+                                    </form:FormElement>
+                                    <form:FormElement>
+                                        <form:fields>
+                                            <!--<Text text="Revenue: + amount increases and - amount reduces hedges" > </Text>-->
+                                            <Text text="Costs: - amount increases and + amount reduces hedges" > </Text>
+                                        </form:fields>
+                                    </form:FormElement>
+                                </form:formElements>
+                        </form:FormContainer>
+                    </form:formContainers>    
+                </form:Form>
+            </VBox>
+        </content>
+        <buttons>
+        	<Button text="Save" press="onRequestSpotForwardSave" />
+            <Button text="Cancel" press="onRequestSpotForwardCancel" />
+        </buttons>
+    </Dialog>
+</core:FragmentDefinition>

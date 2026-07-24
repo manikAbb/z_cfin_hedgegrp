@@ -1,0 +1,1 @@
+sap.ui.define(["abb/HedgeRequest/test/unit/controller/App.controller"],function(){"use strict"});

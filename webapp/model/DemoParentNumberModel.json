@@ -1,0 +1,46 @@
+[{
+	"Bukrs": "CN01",
+	"Rantyp": "Contract A",
+	"Sanlf": "Category 1",
+	"RitaNumber": "6032345",
+	"Rfha": "Transaction 1",
+	"DealAmt": "50000",
+	"AvlAmt": "40000",
+	"DealCurrency": "USD"
+}, {
+	"Bukrs": "CN01",
+	"Rantyp": "Contract B",
+	"Sanlf": "Category 2",
+	"RitaNumber": "6315344",
+	"Rfha": "Transaction 2",
+	"DealAmt": "70000",
+	"AvlAmt": "60000",
+	"DealCurrency": "EUR"
+}, {
+	"Bukrs": "CN01",
+	"Rantyp": "Contract C",
+	"Sanlf": "Category 3",
+	"RitaNumber": "6032346",
+	"Rfha": "Transaction 3",
+	"DealAmt": "30000",
+	"AvlAmt": "20000",
+	"DealCurrency": "USD"
+}, {
+	"Bukrs": "CN01",
+	"Rantyp": "Contract D",
+	"Sanlf": "Category 4",
+	"RitaNumber": "6315345",
+	"Rfha": "Transaction 4",
+	"DealAmt": "15000",
+	"AvlAmt": "12000",
+	"DealCurrency": "EUR"
+}, {
+	"Bukrs": "CN01",
+	"Rantyp": "Contract E",
+	"Sanlf": "Category 5",
+	"RitaNumber": "6032347",
+	"Rfha": "Transaction 5",
+	"DealAmt": "85000",
+	"AvlAmt": "80000",
+	"DealCurrency": "USD"
+}]

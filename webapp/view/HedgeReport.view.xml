@@ -1,0 +1,131 @@
+<mvc:View controllerName="hedgerprt.hedge_rprt.controller.HedgeReport" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core"
+	xmlns:smartFilterBar="sap.ui.comp.smartfilterbar" xmlns:smartTable="sap.ui.comp.smarttable" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" xmlns:ui="sap.ui.table" xmlns:f="sap.f" height="100%">
+	<f:DynamicPage headerExpanded="true" toggleHeaderOnTitleClick="true">
+		<f:title>
+			<f:DynamicPageTitle>
+				<!--<f:heading>
+					<Title text="Header Title"/>
+				</f:heading>-->
+			</f:DynamicPageTitle>
+		</f:title>
+		<f:header>
+			<f:DynamicPageHeader pinnable="true">
+				<smartFilterBar:SmartFilterBar id="idHedgeSmartFilterBar" entitySet="pos_detailsSet" persistencyKey="Hedge_SmartFilter"
+					basicSearchFieldName="Bukrs" enableBasicSearch="false">
+					<smartFilterBar:controlConfiguration>
+						<smartFilterBar:ControlConfiguration key="Bukrs" visibleInAdvancedArea="true" mandatory="mandatory" label="{i18n>CompanyCode}">
+							<!--<smartFilterBar:defaultFilterValues>
+								<smartFilterBar:SelectOption low="SG01"></smartFilterBar:SelectOption>
+							</smartFilterBar:defaultFilterValues>-->
+						</smartFilterBar:ControlConfiguration>
+					</smartFilterBar:controlConfiguration>
+					<smartFilterBar:controlConfiguration>
+						<smartFilterBar:ControlConfiguration key="DisplayCurr" visibleInAdvancedArea="true" mandatory="mandatory" filterType="single"
+							label="{i18n>DisplayCurrency}">
+							<smartFilterBar:defaultFilterValues>
+								<smartFilterBar:SelectOption low="USD"></smartFilterBar:SelectOption>
+							</smartFilterBar:defaultFilterValues>
+						</smartFilterBar:ControlConfiguration>
+					</smartFilterBar:controlConfiguration>
+					<smartFilterBar:controlConfiguration>
+						<smartFilterBar:ControlConfiguration key="Kurst" visibleInAdvancedArea="true" mandatory="mandatory" filterType="single"
+							label="{i18n>ExchangeRateType}">
+							<smartFilterBar:defaultFilterValues>
+								<smartFilterBar:SelectOption low="M"></smartFilterBar:SelectOption>
+							</smartFilterBar:defaultFilterValues>
+						</smartFilterBar:ControlConfiguration>
+					</smartFilterBar:controlConfiguration>
+					<smartFilterBar:controlConfiguration>
+						<smartFilterBar:ControlConfiguration key="Prctr" visibleInAdvancedArea="true" label="{i18n>ProfitCenter}"></smartFilterBar:ControlConfiguration>
+					</smartFilterBar:controlConfiguration>
+					<smartFilterBar:controlConfiguration>
+						<smartFilterBar:ControlConfiguration key="ExpCurr" visibleInAdvancedArea="true" label="{i18n>ExposureCurrency}"></smartFilterBar:ControlConfiguration>
+					</smartFilterBar:controlConfiguration>
+					<smartFilterBar:controlConfiguration>
+						<smartFilterBar:ControlConfiguration key="PlanningPeriod" visibleInAdvancedArea="true" label="{i18n>PlanningPeriod}"></smartFilterBar:ControlConfiguration>
+					</smartFilterBar:controlConfiguration>
+					<smartFilterBar:controlConfiguration>
+						<smartFilterBar:ControlConfiguration key="PlanningYear" visibleInAdvancedArea="true" label="{i18n>PlanningYear}"></smartFilterBar:ControlConfiguration>
+					</smartFilterBar:controlConfiguration>
+					<smartFilterBar:controlConfiguration>
+						<smartFilterBar:ControlConfiguration key="PositionId" visibleInAdvancedArea="true" label="{i18n>PositionId}"></smartFilterBar:ControlConfiguration>
+					</smartFilterBar:controlConfiguration>
+					<smartFilterBar:controlConfiguration>
+						<smartFilterBar:ControlConfiguration key="ExpType" visibleInAdvancedArea="true" label="{i18n>ExpType}"></smartFilterBar:ControlConfiguration>
+					</smartFilterBar:controlConfiguration>
+					<smartFilterBar:controlConfiguration>
+						<smartFilterBar:ControlConfiguration key="Status" index="1" label="{i18n>Status}" visibleInAdvancedArea="true">
+							<smartFilterBar:customControl>
+								<Select id="idCustomStatusDrp" app:hasValue="true" selectedKey="1" change="handledCustomStatusChange">
+									<core:Item key="4" text=""/>
+									<core:Item key="3" text="{i18n>FullyHedged}"/>
+									<core:Item key="2" text="{i18n>UnderThreshold}"/>
+									<core:Item key="1" text="{i18n>ToHedge}"/>
+								</Select>
+							</smartFilterBar:customControl>
+						</smartFilterBar:ControlConfiguration>
+					</smartFilterBar:controlConfiguration>
+					<smartFilterBar:controlConfiguration>
+						<smartFilterBar:ControlConfiguration key="TransactionCatT" visibleInAdvancedArea="true" label="{i18n>ExposureCategory}">
+							<smartFilterBar:customControl>
+								<Select id="idCustomExpoCat" app:hasValue="true">
+									<core:Item key="0" text=""/>
+									<core:Item key="1" text="{i18n>ForecastedTransaction}"/>
+									<core:Item key="3" text="{i18n>AssetLiabilityTransaction}"/>
+								</Select>
+							</smartFilterBar:customControl>
+						</smartFilterBar:ControlConfiguration>
+					</smartFilterBar:controlConfiguration>
+					<smartFilterBar:controlConfiguration>
+						<smartFilterBar:ControlConfiguration key="EntityType" visibleInAdvancedArea="true" label="{i18n>EntityType}">
+							<smartFilterBar:customControl>
+								<Select id="idCustomEntityType" app:hasValue="true">
+									<core:Item key="" text=""/>
+									<core:Item key="CHCAL" text="{i18n>CHCAL}"/>
+									<core:Item key="NON-CHCAL" text="{i18n>NONCHCAL}"/>
+								</Select>
+							</smartFilterBar:customControl>
+						</smartFilterBar:ControlConfiguration>
+					</smartFilterBar:controlConfiguration>
+					<smartFilterBar:layoutData>
+						<FlexItemData shrinkFactor="0"/>
+					</smartFilterBar:layoutData>
+				</smartFilterBar:SmartFilterBar>
+			</f:DynamicPageHeader>
+		</f:header>
+		<f:content>
+			<smartTable:SmartTable id="IdHedgeLineItemsSmartTable" entitySet="pos_detailsSet" smartFilterId="idHedgeSmartFilterBar" tableType="Table"
+				useExportToExcel="true" beforeExport="onBeforeHedgeReportExport" useVariantManagement="true" useTablePersonalisation="true"
+				header="Hedge Report" showRowCount="true" persistencyKey="Hedge_SmartTableAnalytical" enableAutoBinding="true"
+				class="sapUiResponsiveContentPadding" editTogglable="false" app:useSmartToggle="true" initiallyVisibleFields="PositionId"
+				beforeRebindTable="onBeforeRebindTable"
+				requestAtLeastFields="PositionId,ExpType,Bukrs,Rcomp,Gsber,Prctr,Division,Pggroup,ExpAmt,BuySell,ExpCurr,TargetCurr,HedgedAmt,UnhedgedAmt,ExpThAmt,DueDate,Status,EntityType,Reqamt,Proposedhedge,Maxhedge,Wbs,Pososguid,Reqoption,Reqperiod,RitaNumber,Minhedge,absStatus"
+				ignoredFields="Hedgereq,Proposedhedge,Maxhedge,Pososguid,Reqamt,Reqoption,Reqperiod,RitaNumber,Minhedge,absStatus" >
+				<smartTable:customToolbar>
+					<OverflowToolbar design="Transparent">
+						<ToolbarSpacer/>
+						<Button id="idRHedgeRollover" text="{i18n>hedgeRollover}" tooltip="{i18n>hedgeRollover}" press="onHedgeRollover"/>
+						<Button id="idMassRollover" text="{i18n>massRollover}" tooltip="{i18n>massRollover}" press="onMassRollover"/>
+						<Button id="idEarlyExp" text="{i18n>earlyExpiration}" tooltip="{i18n>earlyExpiration}" press="onEarlyExpiration"/>
+						<Button id="idExpRolover" text="{i18n>exposureRollover}" tooltip="{i18n>exposureRollover}" press="onExposureRollover"/>
+						<Button id="idExpRoleback" text="{i18n>exposureRoleback}" tooltip="{i18n>exposureRoleback}" press="onExposureRoleback"/>
+						<Button id="idCloseOut" text="{i18n>closeout}" tooltip="{i18n>closeout}" press="oncloseout"/>
+						<Button id="idRequestSpotForward" text="{i18n>RequestSpotForward}" tooltip="{i18n>RequestSpotForward}" press="onHedgeRequestSpotForward"/>
+						<Button id="idMonitoeReq" text="{i18n>MonitorRequest}" tooltip="{i18n>MonitorRequest}" press="onHedgeMonitorRequest"/>
+						<Button id="idDisplayFlows" text="{i18n>DisplayFlows}" tooltip="{i18n>DisplayFlows}" press="onHedgePositionFlows"/>
+						<Button id="idDisplayThresholds" text="{i18n>DisplayThresholds}" tooltip="{i18n>DisplayThresholds}" press="onHedgeThresholdCheck"/>
+					</OverflowToolbar>
+				</smartTable:customToolbar>
+				<ui:Table visibleRowCountMode="Auto" >
+					<ui:rowSettingsTemplate>
+						<ui:RowSettings highlight="{path:'Status', formatter:'.formatRowHighlight'}"/>
+					</ui:rowSettingsTemplate>
+				</ui:Table>
+				<smartTable:layoutData>
+					<FlexItemData growFactor="1" baseSize="0%"/>
+				</smartTable:layoutData>
+			</smartTable:SmartTable>
+		</f:content>
+	</f:DynamicPage>
+</mvc:View>
