@@ -953,7 +953,7 @@ sap.ui.define([
 				maxhedge = [],
 				proposedhedge = [],
 				hedgereq = [],
-				Wbs = [];
+				Wbs = [],
 				NetworkEle=[];
 
 			for (var i = 0; i < oItems.length; i++) {
