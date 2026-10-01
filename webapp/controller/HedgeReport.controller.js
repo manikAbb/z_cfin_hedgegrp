@@ -953,7 +953,7 @@ sap.ui.define([
 				proposedhedge = [],
 				hedgereq = [],
 				Wbs = [],
-                NetworkEle=[];// SOC FIN00534584 network element added
+                NetworkEle=[];// SOC 10452844 FIN00534584 network element added
 
 			for (var i = 0; i < oItems.length; i++) {
 				j = oItems[i];
