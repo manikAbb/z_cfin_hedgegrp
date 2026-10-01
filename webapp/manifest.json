@@ -12,7 +12,7 @@
         "sourceTemplate": {
             "id": "servicecatalog.connectivityComponentForManifest",
             "version": "0.0.0",
-            "toolsId": "5e8a5750-7bf5-4dfd-958a-861a7971fe19"
+            "toolsId": "9ae6a70b-1797-46bf-ba44-17bf239c7695"
         },
         "dataSources": {
             "ZFITR_EXP_HEDGE_POSITION_SRV": {

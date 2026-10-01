@@ -297,16 +297,10 @@ sap.ui.define([
 				//swapn no.s
 				[oMinLimitValue, oMaxLimitValue] = [oMaxLimitValue, oMinLimitValue];
 			}
-            /**
-             * SOC FIN00534584 removed the validation for the min and max amount 
-             * as these validations are oding to be hanled from the backend
-             * Uid 10452844
-             * /  
-			/*if (ohedgeRequestValue > oMaxLimitValue || ohedgeRequestValue < oMinLimitValue) {
+			if (ohedgeRequestValue > oMaxLimitValue || ohedgeRequestValue < oMinLimitValue) {
 				MessageBox.error("Hedge Request should be between Maximum & Minimum Hedge Limit");
 				oEvent.getSource().setValue("");
-			}*/
-            // EOC FIN00534584
+			}
 
 			// old logic of Abs for -ve amounts
 			// if (isNaN(ohedgeRequestValue)) {
@@ -953,8 +947,7 @@ sap.ui.define([
 				maxhedge = [],
 				proposedhedge = [],
 				hedgereq = [],
-				Wbs = [],
-				NetworkEle=[];
+				Wbs = [];
 
 			for (var i = 0; i < oItems.length; i++) {
 				j = oItems[i];
@@ -980,7 +973,6 @@ sap.ui.define([
 				proposedhedge[i] = oTable.getContextByIndex(j).getProperty("Proposedhedge");
 				hedgereq[i] = oTable.getContextByIndex(j).getProperty("Hedgereq");
 				Wbs[i] = oTable.getContextByIndex(j).getProperty("Wbs");
-				NetworkEle[i] = oTable.getContextByIndex(j).getProperty("NetworkEle");
 
 			}
 			//	console.log(oItems.length,posData.length)
@@ -1014,7 +1006,6 @@ sap.ui.define([
 					sItems.Proposedhedge = (proposedhedge[i]);
 					sItems.Reqamt = (hedgereq[i]);
 					sItems.Wbs = (Wbs[i]);
-					sItems.NetworkEle = (NetworkEle[i]);
 
 					sItemsList.push(sItems);
 
